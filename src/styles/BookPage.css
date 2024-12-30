@@ -1,24 +1,33 @@
+/* Contenedor principal */
 .book-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 2rem;
     background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
 }
 
+.book-page__layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* Dos partes para detalles, una para carrito */
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    align-items: start;
+}
+
+/* Sección de detalles del libro */
 .book-page__details {
-    max-width: 600px;
     background-color: #fff;
     padding: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
 }
 
 .book-page__title {
     font-size: 2rem;
-    color: #007bff;
+    color: #333;
     margin-bottom: 1rem;
 }
 
@@ -48,7 +57,7 @@
 
 .book-page__button {
     padding: 0.5rem 1rem;
-    background-color: #28a745;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 4px;
@@ -58,4 +67,15 @@
 
 .book-page__button:hover {
     background-color: #218838;
+}
+
+/* Carrito */
+.cart {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
 }

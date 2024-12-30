@@ -1,49 +1,71 @@
+/* Contenedor Principal */
 .main-page {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    padding: 40px;
     max-width: 1200px;
-    margin: auto;
-    padding: 2rem;
+    margin: 0 auto;
 }
 
+.main-page__layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    /* Tres partes para los libros, una para el carrito */
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Lista de Libros */
 .main-page__content {
-    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .main-page__list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
 }
 
-.main-page__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #fff;
+/* Carrito */
+.main-page__cart {
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
+    padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+    /* Fija el carrito mientras se desplaza */
 }
 
-.main-page__item:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease;
+/* Diseño Responsivo */
+@media (max-width: 1024px) {
+    .main-page__layout {
+        grid-template-columns: 2fr 1fr;
+        /* Ajuste para tablets */
+    }
+
+    .main-page__list {
+        grid-template-columns: repeat(2, 1fr);
+        /* Dos columnas para tablets */
+    }
 }
 
-.main-page__button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
+@media (max-width: 768px) {
+    .main-page__layout {
+        grid-template-columns: 1fr;
+        /* Una columna para móviles */
+    }
 
-.main-page__button:hover {
-    background-color: #218838;
+    .main-page__cart {
+        position: static;
+        /* El carrito deja de ser fijo en pantallas pequeñas */
+        margin-top: 20px;
+    }
+
+    .main-page__list {
+        grid-template-columns: repeat(1, 1fr);
+        /* Una columna para móviles */
+    }
 }

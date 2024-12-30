@@ -11,42 +11,39 @@ const books = [
 
 const BookPage = ({ cart, setCart }) => {
   const { id } = useParams();
-  const book = books.find(b => b.id === parseInt(id));
+  const book = books.find((b) => b.id === parseInt(id));
 
   const addToCart = () => {
-    const existingBook = cart.find(item => item.id === book.id);
+    const existingBook = cart.find((item) => item.id === book.id);
     if (existingBook) {
-      // Incrementar la cantidad si el libro ya está en el carrito
       setCart(
-        cart.map(item =>
+        cart.map((item) =>
           item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item
         )
       );
     } else {
-      // Agregar el libro con cantidad inicial de 1
       setCart([...cart, { ...book, quantity: 1 }]);
     }
   };
 
   const incrementQuantity = () => {
     setCart(
-      cart.map(item =>
+      cart.map((item) =>
         item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
   };
 
   const decrementQuantity = () => {
-    const existingBook = cart.find(item => item.id === book.id);
+    const existingBook = cart.find((item) => item.id === book.id);
     if (existingBook.quantity > 1) {
       setCart(
-        cart.map(item =>
+        cart.map((item) =>
           item.id === book.id ? { ...item, quantity: item.quantity - 1 } : item
         )
       );
     } else {
-      // Eliminar el libro del carrito si la cantidad es 1
-      setCart(cart.filter(item => item.id !== book.id));
+      setCart(cart.filter((item) => item.id !== book.id));
     }
   };
 
@@ -54,35 +51,35 @@ const BookPage = ({ cart, setCart }) => {
     return <p className="book-page__not-found">El libro no existe.</p>;
   }
 
-  const bookInCart = cart.find(item => item.id === book.id);
+  const bookInCart = cart.find((item) => item.id === book.id);
 
   return (
     <div className="book-page">
-      <div className="book-page__details">
-        <h1 className="book-page__title">{book.title}</h1>
-        <p className="book-page__author">Autor: {book.author}</p>
-        <p className="book-page__description">{book.description}</p>
-        <div className="book-page__actions">
-          {bookInCart ? (
-            <div className="book-page__quantity">
-              <button className="book-page__button" onClick={decrementQuantity}>
-                -
+      <div className="book-page__layout">
+        <div className="book-page__details">
+          <h1 className="book-page__title">{book.title}</h1>
+          <p className="book-page__author">Autor: {book.author}</p>
+          <p className="book-page__description">{book.description}</p>
+          <div className="book-page__actions">
+            {bookInCart ? (
+              <div className="book-page__quantity">
+                <button className="book-page__button" onClick={decrementQuantity}>
+                  -
+                </button>
+                <span>{bookInCart.quantity}</span>
+                <button className="book-page__button" onClick={incrementQuantity}>
+                  +
+                </button>
+              </div>
+            ) : (
+              <button className="book-page__button" onClick={addToCart}>
+                Add to Cart
               </button>
-              <span>{bookInCart.quantity}</span>
-              <button className="book-page__button" onClick={incrementQuantity}>
-                +
-              </button>
-            </div>
-          ) : (
-            <button className="book-page__button" onClick={addToCart}>
-              Add to Cart
-            </button>
-          )}
+            )}
+          </div>
         </div>
+        <Cart cart={cart} setCart={setCart} />
       </div>
-
-      {/* Mostrar el carrito */}
-      <Cart cart={cart} setCart={setCart} />
     </div>
   );
 };
