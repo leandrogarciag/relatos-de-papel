@@ -1,0 +1,23 @@
+.book-page {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.book-page h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.book-page p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.book-page button {
+    background-color: #28a745;
+}
+
+.book-page button:hover {
+    background-color: #218838;
+}
