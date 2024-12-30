@@ -1,15 +1,14 @@
-import 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
 const Header = () => {
   return (
     <header className="header">
-      <h1>Relatos de Papel</h1>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/main">Books</Link>
-        <Link to="/checkout">Checkout</Link>
+      <h1 className="header__title">Relatos de Papel</h1>
+      <nav className="header__nav">
+        <Link className="header__link" to="/">Home</Link>
+        <Link className="header__link" to="/main">Books</Link>
+        <Link className="header__link" to="/checkout">Checkout</Link>
       </nav>
     </header>
   );

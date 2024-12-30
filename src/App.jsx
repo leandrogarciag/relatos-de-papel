@@ -1,4 +1,3 @@
-import 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -15,12 +14,23 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/main" element={<MainPage cart={cart} setCart={setCart} />} />
-        <Route path="/book/:id" element={<BookPage cart={cart} setCart={setCart} />} />
-        <Route path="/checkout" element={<CheckoutPage cart={cart} setCart={setCart} />} />
-      </Routes>
+      <main className="app__content">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/main"
+            element={<MainPage cart={cart} setCart={setCart} />}
+          />
+          <Route
+            path="/book/:id"
+            element={<BookPage cart={cart} setCart={setCart} />}
+          />
+          <Route
+            path="/checkout"
+            element={<CheckoutPage cart={cart} setCart={setCart} />}
+          />
+        </Routes>
+      </main>
       <Footer />
     </Router>
   );
