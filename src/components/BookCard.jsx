@@ -2,11 +2,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/BookCard.css';
 
-/**
- * Componente que representa una tarjeta de libro.
- * @param {Object} book - Objeto del libro con propiedades: id, title, author, description.
- * @param {Function} addToCart - Función para añadir el libro al carrito.
- */
 const BookCard = ({ book, addToCart }) => {
   return (
     <div className="book-card">

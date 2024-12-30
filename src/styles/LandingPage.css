@@ -1,4 +1,4 @@
-/* Bloque principal */
+
 .landing-page {
     display: flex;
     flex-direction: column;
@@ -11,21 +11,18 @@
     gap: 1rem;
 }
 
-/* Título */
 .landing-page__title {
     font-size: 2.5rem;
     color: #333;
     margin-bottom: 1rem;
 }
 
-/* Subtítulo */
 .landing-page__subtitle {
     font-size: 1.2rem;
     color: #555;
     margin-bottom: 2rem;
 }
 
-/* Spinner */
 .landing-page__spinner {
     width: 40px;
     height: 40px;
@@ -35,7 +32,6 @@
     animation: spin 1s linear infinite;
 }
 
-/* Animación del spinner */
 @keyframes spin {
     from {
         transform: rotate(0deg);

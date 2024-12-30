@@ -16,7 +16,7 @@ const LandingPage = () => {
     <div className="landing-page">
       <h1 className="landing-page__title">Welcome to Relatos de Papel</h1>
       <p className="landing-page__subtitle">Redirecting to the main page...</p>
-      <div className="landing-page__spinner"></div> {/* Agregamos un spinner */}
+      <div className="landing-page__spinner"></div>
     </div>
   );
 };

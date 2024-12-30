@@ -8,7 +8,6 @@
 .main-page__layout {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    /* Tres partes para los libros, una para el carrito */
     gap: 20px;
     align-items: flex-start;
 }
@@ -36,36 +35,30 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 20px;
-    /* Fija el carrito mientras se desplaza */
 }
 
-/* Diseño Responsivo */
+
 @media (max-width: 1024px) {
     .main-page__layout {
         grid-template-columns: 2fr 1fr;
-        /* Ajuste para tablets */
     }
 
     .main-page__list {
         grid-template-columns: repeat(2, 1fr);
-        /* Dos columnas para tablets */
     }
 }
 
 @media (max-width: 768px) {
     .main-page__layout {
         grid-template-columns: 1fr;
-        /* Una columna para móviles */
     }
 
     .main-page__cart {
         position: static;
-        /* El carrito deja de ser fijo en pantallas pequeñas */
         margin-top: 20px;
     }
 
     .main-page__list {
         grid-template-columns: repeat(1, 1fr);
-        /* Una columna para móviles */
     }
 }
